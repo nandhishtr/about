@@ -99,7 +99,12 @@
 			$window.on('load', function() {
 
 				$('#two').poptrox({
-					caption: function($a) { return $a.next('h3').text(); },
+					caption: function($a) {
+						// Get the text of the nearest h2 element
+						var captionText = $a.closest('.work-item').find('h2').text();
+						return captionText;
+					},
+					// caption: function($a) { return $a.next('h2').text(); },
 					overlayColor: '#2c2c2c',
 					overlayOpacity: 0.85,
 					popupCloserText: '',
